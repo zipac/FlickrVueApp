@@ -1,0 +1,62 @@
+a {
+    font-weight: bold;
+    cursor: pointer;
+    color: inherit;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: hsl(0, 0%, 30%);
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+h1, form {
+    margin-left: 3rem;
+}
+
+li {
+    border: 1px solid hsl( 0, 0%, 85%);
+    border-radius: 5px;
+    list-style: none;
+    max-width: 30rem;
+    word-wrap: break-word;  
+}
+
+img {
+    display: block;
+    margin: auto;
+    padding: 1em;
+    width: 1fr;
+}
+
+ul {
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 2em;
+}
+
+#text {
+    margin: 1em;
+}
+
+/* Only applies to IE browsers as CSS grid doesn't work well https://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11 */
+@media all and (-ms-high-contrast: none)
+{
+    ul {
+        display: inline-block;
+        width: 100%;
+    }
+    li {
+        float: left;
+        height: 400px;
+        width: 400px;
+        margin: 20px 20px;
+        overflow: hidden;
+    }
+}
