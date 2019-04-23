@@ -30,8 +30,9 @@ li {
 img {
     display: block;
     margin: auto;
-    padding: 1em;
-    width: 1fr;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
 }
 
 ul {
