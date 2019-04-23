@@ -24,7 +24,7 @@ var app = new Vue({
       return "#" + str.replace(/[ ]/g, " #");
     },
     retrieveAuthorUrl: function(str) {
-      return "https:\/\/www.flickr.com\/people\/" + str;
+      return "https://www.flickr.com/people/" + str;
     },
     search: function(str) {
       app.tags = ["safe", str];
@@ -34,22 +34,29 @@ var app = new Vue({
   }
 });
 
+// The result from the API accesses this function, which creates an array of unique photos
 function jsonFlickrFeed(feed) {
+  // Creates an array of links from the link key-value pair of photos already on the page
   var linkArray = app.photos.map(function(photo) {
     return photo.link;
   });
 
+  // Returns only photos that aren't on the page already from the API
   var newPhotos = feed.items.filter(function(item) {return linkArray.indexOf(item.link) === -1});
+  // Adds new photos to the page
   app.photos = app.photos.concat(newPhotos);
 }
 
 window.onscroll = function() {
+  // Calculates when the user has scrolled near the bottom of the window, then loads more photos
   let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight >= document.documentElement.offsetHeight - 20;
   if (bottomOfWindow) {
     app.loadData();
   }
 };
 
+// Lazy loading code from: https://css-tricks.com/the-complete-guide-to-lazy-loading-images/
+// Used Method 1 as spec required IE 10+ support and Intersection Observer is not supported
 setLazyloadListeners = function() {
   var lazyloadImages = document.querySelectorAll("img.lazy");
   var lazyloadThrottleTimeout;

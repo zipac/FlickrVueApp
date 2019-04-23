@@ -45,7 +45,8 @@ ul {
     margin: 1em;
 }
 
-/* Only applies to IE browsers as CSS grid doesn't work well https://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11 */
+/* Only applies to IE browsers as CSS grid doesn't work well 
+https://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11 */
 @media all and (-ms-high-contrast: none)
 {
     ul {
