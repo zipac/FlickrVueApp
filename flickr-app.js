@@ -2,7 +2,7 @@ var app = new Vue({
   el: '#container',
   data: {
     photos: [],
-    tags: ["safe"]
+    tags: ["safe", "plane"]
   },
   updated: function() {
     setLazyloadListeners();
